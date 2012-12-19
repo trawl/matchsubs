@@ -8,9 +8,9 @@
 # WARNING! All changes made in this file will be lost!
 
 try:
-  from PyQt4 import QtCore,QtGui
+    from PyQt4 import QtCore,QtGui
 except ImportError as error:
-  from PySide import QtCore,QtGui
+    from PySide import QtCore,QtGui
 
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
