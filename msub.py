@@ -2,6 +2,7 @@
 # -*- coding: utf-8 -*-
 import sys
 import os
+
 try:
     from PySide import QtCore,QtGui
     QtGui.QFileDialog.getOpenFileNameAndFilter = QtGui.QFileDialog.getOpenFileName
@@ -42,7 +43,7 @@ class MainWindow(QtGui.QMainWindow):
         self.show()
 
     def selectdir(self):
-        newdir = QtGui.QFileDialog.getExistingDirectory(self, 'Select Directory', self.workdir)
+        newdir = QtGui.QFileDialog.getExistingDirectory(self, self.tr('Select Directory'), self.workdir)
         if len(newdir)>0:
             self.workdir = str(newdir)
             self.refresh()
@@ -63,7 +64,7 @@ class MainWindow(QtGui.QMainWindow):
         selection = self.entrylist.getselected()
         if len(selection)>0:
             count = self.controller.renamesubs(selection)
-            QtGui.QMessageBox.information(self,"Matching complete", "{} episodes where matched with their subs".format(count),QtGui.QMessageBox.Ok)
+            QtGui.QMessageBox.information(self,self("Matching complete"), "{} {}".format(count, self.tr('episodes where matched with their subs')),QtGui.QMessageBox.Ok)
             self.refresh()
         
     def selectallaction(self): 
@@ -81,7 +82,7 @@ class EpisodeList(QtGui.QWidget):
         self.episodeslayout = QtGui.QVBoxLayout(self)
         self.entries = []
         self.noentrieslabel = QtGui.QLabel(self)
-        self.noentrieslabel.setText('No episodes to match were found on this directory')
+        self.noentrieslabel.setText(self.tr('No episodes to match were found on this directory'))
         self.noentrieslabel.setAlignment(QtCore.Qt.AlignHCenter|QtCore.Qt.AlignVCenter)
         self.episodeslayout.addWidget(self.noentrieslabel)
         self.c.episodelistempty.emit(True)
@@ -142,10 +143,10 @@ class EpisodeEntry(QtGui.QGroupBox):
         self.sublabel = QtGui.QLabel(self)
         self.layout.addWidget(self.sublabel)        
 
-        self.subselect = QtGui.QPushButton('Change',self)
+        self.subselect = QtGui.QPushButton(self.tr('Change'),self)
         self.subselect.clicked.connect(self.changesub)
         self.layout.addWidget(self.subselect)
-        self.subunmatch = QtGui.QPushButton('Unmatch',self)
+        self.subunmatch = QtGui.QPushButton(self.tr('Unmatch'),self)
         self.subunmatch.clicked.connect(self.unmatchsub)
         self.layout.addWidget(self.subunmatch)
         self.updatecontent()
@@ -173,8 +174,8 @@ class EpisodeEntry(QtGui.QGroupBox):
 
         
     def changesub(self):
-        title = "Choose Subtitle for " + os.path.basename(self.episode)
-        fltr = "Subtitle files (*.sub *srt)"
+        title = "{} {}".format(self.tr("Choose Subtitle for"),os.path.basename(self.episode))
+        fltr = self.tr("Subtitle files (*.sub *srt)")
         newsub,_ = QtGui.QFileDialog.getOpenFileNameAndFilter(self, title, self.workdir,fltr,fltr, QtGui.QFileDialog.ReadOnly)
         newsub = str(newsub)
         if len(newsub)==0: return
@@ -183,7 +184,7 @@ class EpisodeEntry(QtGui.QGroupBox):
             self.controller.newmatch(self.episode,self.subtitle)
             self.updatecontent()
         else:
-            QtGui.QMessageBox.warning(self,"Subtitle Already in Use", "The subtitle selected was already matching another episode",QtGui.QMessageBox.Ok)
+            QtGui.QMessageBox.warning(self,self.tr("Subtitle Already in Use"), self.tr("The subtitle selected was already matching another episode"),QtGui.QMessageBox.Ok)
             self.changesub()
             
     def unmatchsub(self):
@@ -202,6 +203,9 @@ class EpisodeEntry(QtGui.QGroupBox):
     def stateChanged(self,state): self.c.stateChanged.emit(state)
     
 if __name__ == '__main__':
+    translator = QtCore.QTranslator()
+    translator.load('i18n/es_ES')
     app = QtGui.QApplication(sys.argv)
+    app.installTranslator(translator)
     mw = MainWindow()
     sys.exit(app.exec_())
