@@ -64,7 +64,7 @@ class MainWindow(QtGui.QMainWindow):
         selection = self.entrylist.getselected()
         if len(selection)>0:
             count = self.controller.renamesubs(selection)
-            QtGui.QMessageBox.information(self,self("Matching complete"), "{} {}".format(count, self.tr('episodes where matched with their subs')),QtGui.QMessageBox.Ok)
+            QtGui.QMessageBox.information(self,self.tr("Matching complete"), "{} {}".format(count, self.tr('episodes where matched with their subs')),QtGui.QMessageBox.Ok)
             self.refresh()
         
     def selectallaction(self): 
