@@ -9,8 +9,11 @@
 
 try:
     from PyQt4 import QtCore,QtGui
+    QtCore.Signal = QtCore.pyqtSignal
+    QtCore.Slot = QtCore.pyqtSlot
 except ImportError as error:
     from PySide import QtCore,QtGui
+    QtGui.QFileDialog.getOpenFileNameAndFilter = QtGui.QFileDialog.getOpenFileName
 
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
