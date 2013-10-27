@@ -24,7 +24,7 @@ class MainWindow(QtGui.QMainWindow):
     
     def __init__(self,parent=None):
         super(MainWindow,self).__init__(parent)
-        self.icon = QtGui.QIcon('icons/subs.svg')
+        self.icon = QtGui.QIcon('icons/subs.ico')
         self.setWindowIcon(self.icon)
         homeDir = QtGui.QDesktopServices.storageLocation(QtGui.QDesktopServices.HomeLocation)
         downloadDir = homeDir +'/Downloads'
