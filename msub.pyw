@@ -204,7 +204,8 @@ class EpisodeEntry(QtGui.QGroupBox):
     
 if __name__ == '__main__':
     translator = QtCore.QTranslator()
-    translator.load('i18n/es_ES')
+    if not translator.load(QtCore.QLocale.system().name(),'i18n/'):
+        translator.load('i18n/es_ES')
     app = QtGui.QApplication(sys.argv)
     app.installTranslator(translator)
     mw = MainWindow()
