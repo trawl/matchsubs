@@ -2,6 +2,7 @@
 # -*- coding: utf-8 -*-
 import sys
 import os
+import ctypes
 
 try:
     from PyQt4 import QtCore,QtGui
@@ -23,7 +24,12 @@ class MainWindow(QtGui.QMainWindow):
     
     def __init__(self,parent=None):
         super(MainWindow,self).__init__(parent)
-        self.workdir = QtGui.QDesktopServices.storageLocation(QtGui.QDesktopServices.HomeLocation)+'/Downloads'
+        self.icon = QtGui.QIcon('icons/subs.svg')
+        self.setWindowIcon(self.icon)
+        homeDir = QtGui.QDesktopServices.storageLocation(QtGui.QDesktopServices.HomeLocation)
+        downloadDir = homeDir +'/Downloads'
+        if os.path.exists(downloadDir): self.workdir = downloadDir
+        else: self.workdir = homeDir
         self.c = Communicate()
         self.ui = Ui_MainWindow()
         self.controller = None
@@ -204,6 +210,14 @@ class EpisodeEntry(QtGui.QGroupBox):
     def stateChanged(self,state): self.c.stateChanged.emit(state)
     
 if __name__ == '__main__':
+    try: ctypes.windll.shell32.SetCurrentProcessExplicitAppUserModelID('GameLog')
+    except: pass
+        #Disable output on windows when using pythonw to avoid filling buffers
+    if os.path.basename((sys.executable)) == "pythonw.exe":
+        f=open(os.devnull,'w')
+        sys.stdout=f
+        sys.stderr=f    
+        
     translator = QtCore.QTranslator()
     if not translator.load(QtCore.QLocale.system().name(),'i18n/'):
         translator.load('i18n/es_ES')
