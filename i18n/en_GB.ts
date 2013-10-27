@@ -1,37 +1,37 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE TS>
-<TS version="2.0" language="es_ES">
+<TS version="2.0" language="en_GB">
 <context>
     <name>EpisodeEntry</name>
     <message>
         <location filename="msub.pyw" line="147"/>
         <source>Change</source>
-        <translation>Cambiar</translation>
+        <translation>Change</translation>
     </message>
     <message>
         <location filename="msub.pyw" line="150"/>
         <source>Unmatch</source>
-        <translation>Desemparejar</translation>
+        <translation>Unmatch</translation>
     </message>
     <message>
         <location filename="msub.pyw" line="178"/>
         <source>Choose Subtitle for</source>
-        <translation>Elegir subtítulo para</translation>
+        <translation>Choose Subtitle for</translation>
     </message>
     <message>
         <location filename="msub.pyw" line="179"/>
         <source>Subtitle files (*.sub *srt)</source>
-        <translation>Ficheros de subtítulo (*.sub *.str)</translation>
+        <translation>Subtitle files (*.sub *srt)</translation>
     </message>
     <message>
         <location filename="msub.pyw" line="188"/>
         <source>Subtitle Already in Use</source>
-        <translation>El subtítulo ya está en uso</translation>
+        <translation>Subtitle Already in Use</translation>
     </message>
     <message>
         <location filename="msub.pyw" line="188"/>
         <source>The subtitle selected was already matching another episode</source>
-        <translation>El subtítulo seleccionado ya está emparejado con otro episodio</translation>
+        <translation>The subtitle selected was already matching another episode</translation>
     </message>
 </context>
 <context>
@@ -39,7 +39,7 @@
     <message>
         <location filename="msub.pyw" line="86"/>
         <source>No episodes to match were found on this directory</source>
-        <translation>No se encontró ningún episodio para emparejar en este directorio</translation>
+        <translation>No episodes to match were found on this directory</translation>
     </message>
 </context>
 <context>
@@ -47,12 +47,12 @@
     <message>
         <location filename="mainwindowui.py" line="78"/>
         <source>Match Subtitles</source>
-        <translation>Emparejar Subtítulos</translation>
+        <translation>Match Subtitles</translation>
     </message>
     <message>
         <location filename="mainwindowui.py" line="79"/>
         <source>Select the directory</source>
-        <translation>Selecciona el directorio</translation>
+        <translation>Select the directory</translation>
     </message>
     <message>
         <location filename="mainwindowui.py" line="80"/>
@@ -62,47 +62,47 @@
     <message>
         <location filename="mainwindowui.py" line="81"/>
         <source>Select All</source>
-        <translation>Seleccionar Todo</translation>
+        <translation>Select All</translation>
     </message>
     <message>
         <location filename="mainwindowui.py" line="82"/>
         <source>Deselect All</source>
-        <translation>Deseleccionar Todo</translation>
+        <translation>Deselect All</translation>
     </message>
     <message>
         <location filename="mainwindowui.py" line="83"/>
         <source>Refresh</source>
-        <translation>Actualizar</translation>
+        <translation>Refresh</translation>
     </message>
     <message>
         <location filename="mainwindowui.py" line="84"/>
         <source>Go!</source>
-        <translation type="obsolete">Emparejar!</translation>
+        <translation type="obsolete">Match!</translation>
     </message>
     <message>
         <location filename="msub.pyw" line="46"/>
         <source>Select Directory</source>
-        <translation>Seleccionar Directorio</translation>
-    </message>
-    <message>
-        <location filename="msub.pyw" line="67"/>
-        <source>episodes where matched with their subs</source>
-        <translation type="obsolete">Se han emparejado los episodios con sus subtítulos</translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="msub.pyw" line="68"/>
         <source>Matching complete</source>
-        <translation>Emparejado completado</translation>
+        <translation>Matching complete</translation>
+    </message>
+    <message>
+        <location filename="msub.pyw" line="67"/>
+        <source>episodes where matched with their subs</source>
+        <translation type="obsolete">episodes where matched with their subs</translation>
     </message>
     <message>
         <location filename="mainwindowui.py" line="84"/>
         <source>Match!</source>
-        <translation>Emparejar!</translation>
+        <translation>Match!</translation>
     </message>
     <message>
         <location filename="msub.pyw" line="68"/>
         <source>{} episodes where matched with their subs</source>
-        <translation>Se han emparejado {} episodios con sus subtítulos</translation>
+        <translation>{} episodes where matched with their subs</translation>
     </message>
 </context>
 </TS>

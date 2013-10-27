@@ -23,7 +23,7 @@ class MainWindow(QtGui.QMainWindow):
     
     def __init__(self,parent=None):
         super(MainWindow,self).__init__(parent)
-        self.workdir = os.getcwd()
+        self.workdir = QtGui.QDesktopServices.storageLocation(QtGui.QDesktopServices.HomeLocation)+'/Downloads'
         self.c = Communicate()
         self.ui = Ui_MainWindow()
         self.controller = None
@@ -64,7 +64,8 @@ class MainWindow(QtGui.QMainWindow):
         selection = self.entrylist.getselected()
         if len(selection)>0:
             count = self.controller.renamesubs(selection)
-            QtGui.QMessageBox.information(self,self.tr("Matching complete"), "{} {}".format(count, self.tr('episodes where matched with their subs')),QtGui.QMessageBox.Ok)
+#             QtGui.QMessageBox.information(self,self.tr("Matching complete"), "{} {}".format(count, self.tr('episodes where matched with their subs')),QtGui.QMessageBox.Ok)
+            QtGui.QMessageBox.information(self,self.tr("Matching complete"), self.tr('{} episodes where matched with their subs').format(count),QtGui.QMessageBox.Ok)
             self.refresh()
         
     def selectallaction(self): 

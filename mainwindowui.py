@@ -81,5 +81,5 @@ class Ui_MainWindow(object):
         self.selectallbutton.setText(QtGui.QApplication.translate("MainWindow", "Select All", None, QtGui.QApplication.UnicodeUTF8))
         self.deselectallbutton.setText(QtGui.QApplication.translate("MainWindow", "Deselect All", None, QtGui.QApplication.UnicodeUTF8))
         self.refreshbutton.setText(QtGui.QApplication.translate("MainWindow", "Refresh", None, QtGui.QApplication.UnicodeUTF8))
-        self.gobutton.setText(QtGui.QApplication.translate("MainWindow", "Go!", None, QtGui.QApplication.UnicodeUTF8))
+        self.gobutton.setText(QtGui.QApplication.translate("MainWindow", "Match!", None, QtGui.QApplication.UnicodeUTF8))
 
