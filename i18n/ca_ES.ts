@@ -97,7 +97,7 @@
     <message>
         <location filename="msub.pyw" line="68"/>
         <source>{} episodes where matched with their subs</source>
-        <translation>S&apos;han emparellat {} episodes amb els seus subtítols</translation>
+        <translation>S&apos;han emparellat {} episodis amb els seus subtítols</translation>
     </message>
 </context>
 </TS>
